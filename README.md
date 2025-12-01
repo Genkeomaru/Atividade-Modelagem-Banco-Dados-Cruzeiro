@@ -3,8 +3,8 @@
 **Universidade:** Cruzeiro do Sul Virtual  
 **Curso:** Análise e Desenvolvimento de Sistemas (ADS)  
 **Disciplina:** Modelagem de Banco de Dados  
-**Aluno:** Guilherme  
-**RGM:** [COLOQUE SEU RGM AQUI]  
+**Aluno:** Guilherme Rodrigues de Assis Santos
+**RGM:** 46610120  
 
 ---
 
