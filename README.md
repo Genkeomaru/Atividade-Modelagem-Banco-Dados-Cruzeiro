@@ -37,7 +37,8 @@ Os scripts foram organizados sequencialmente para garantir a integridade referen
 
 ### Exemplo de Relatório (Boletim Escolar)
 Consulta SQL que unifica dados de 5 tabelas para exibir a situação do aluno.
-<img width="822" height="302" alt="resultado" src="https://github.com/user-attachments/assets/e3d66e36-ad53-4b5c-aa47-59d595f31dc6" />
+<img width="869" height="321" alt="resultado" src="https://github.com/user-attachments/assets/52476335-fe4e-446d-88c7-38e5d880c70a" />
+
 
 
 ---
