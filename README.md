@@ -32,11 +32,13 @@ Os scripts foram organizados sequencialmente para garantir a integridade referen
 ## 📊 Evidências de Execução
 
 ### Diagrama de Entidade-Relacionamento (DER)
-*(Insira aqui a imagem: prints/diagrama_db.png)*
+*<img width="1287" height="757" alt="Diagrama_db" src="https://github.com/user-attachments/assets/64833e03-4115-4cf0-ac53-5803f1a24ebf" />
+*
 
 ### Exemplo de Relatório (Boletim Escolar)
 Consulta SQL que unifica dados de 5 tabelas para exibir a situação do aluno.
-*(Insira aqui a imagem: prints/select_resultado.png)*
+*<img width="822" height="302" alt="resultado" src="https://github.com/user-attachments/assets/e3d66e36-ad53-4b5c-aa47-59d595f31dc6" />
+*
 
 ---
 *Projeto desenvolvido para fins acadêmicos e composição de portfólio profissional.*
