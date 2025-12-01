@@ -1,41 +1,42 @@
-# 🎓 Sistema de Gestão Acadêmica (UniFaculdade)
+# 🎓 Atividade Prática: Modelagem de Banco de Dados
 
-Projeto de modelagem e implementação de banco de dados relacional para uma universidade fictícia, desenvolvido para demonstrar competências em SQL Server e T-SQL.
+**Universidade:** Cruzeiro do Sul Virtual  
+**Curso:** Análise e Desenvolvimento de Sistemas (ADS)  
+**Disciplina:** Modelagem de Banco de Dados  
+**Aluno:** Guilherme  
+**RGM:** [COLOQUE SEU RGM AQUI]  
 
-![Status do Projeto](https://img.shields.io/badge/Status-Concluído-green) ![SQL Server](https://img.shields.io/badge/Database-SQL%20Server-red)
+---
 
-## 📋 Sobre o Projeto
-Este repositório contém a estrutura completa de um banco de dados universitário, cobrindo desde a criação das tabelas (DDL) até a manipulação avançada de dados (DML) e relatórios gerenciais (DQL).
+## 📋 Descrição do Projeto
+Este projeto consiste na implementação prática de um banco de dados relacional para um sistema de gestão acadêmica ("UniFaculdade"). O objetivo é demonstrar a competência na criação de estruturas de dados (DDL), manipulação de registros (DML) e construção de consultas relacionais (DQL) utilizando **SQL Server**.
 
-O objetivo foi simular um ambiente real onde é necessário gerenciar:
-- Alunos e Professores
-- Cursos e Matérias
-- Turmas e Matrículas
-- Diários de Classe (Notas e Faltas)
+## 🏗 Explicação da Estrutura (Modelagem)
+O banco de dados foi estruturado seguindo as regras de normalização para evitar redundância e garantir a integridade dos dados. A lógica do relacionamento entre as entidades é a seguinte:
 
-## 🗂 Estrutura do Banco de Dados
-O projeto foi modelado seguindo as formas normais para garantir integridade referencial.
-*(Insira aqui o print do seu Diagrama: diagrama_db.png)*
+* **Faculdade & Cursos (1:N):** Uma faculdade possui vários cursos, mas um curso pertence a uma única unidade.
+* **Alunos & Matrículas (1:N):** O cadastro do aluno (`Aluno`) é separado de seu vínculo com o curso. A tabela `Matricula` atua como o elo, permitindo que o sistema escale (caso o aluno faça mais de um curso futuramente).
+* **Cursos & Matérias (1:N):** Cada curso possui sua grade curricular composta por várias matérias.
+* **Turmas (Entidade Associativa):** A `Turma` é o ponto central que conecta **Professor**, **Matéria** e o **Semestre** (ex: 2025.1). Isso permite saber qual professor ministrou qual matéria em determinado período.
+* **Diário de Classe (N:N Resolvida):** Representa a relação entre a **Turma** e a **Matrícula** do aluno. É aqui que ficam as notas e faltas, pois a nota não pertence só ao aluno, nem só à matéria, mas ao desempenho daquele aluno naquela turma específica.
 
-## 🚀 Como Executar
-Os scripts foram numerados para execução sequencial, garantindo que as dependências (Foreign Keys) sejam respeitadas.
+## 🛠 Scripts SQL Desenvolvidos
 
-1. **01_create_database.sql**: Cria o banco e a estrutura das tabelas.
-2. **02_inserts_seed.sql**: Popula o banco com dados fictícios (Seed), limpando dados antigos e resetando IDs.
-3. **03_selects_relatorios.sql**: Gera relatórios gerenciais (Boletim, Contagem de alunos, etc).
-4. **04_updates_manutencao.sql**: Exemplos de transações de update e delete seguros.
+Os scripts foram organizados sequencialmente para garantir a integridade referencial durante a execução:
 
-## 📊 Exemplos de Consultas (DQL)
+1.  **`01_create_database.sql`**: Script DDL responsável pela criação do banco e das tabelas com suas respectivas Chaves Primárias (PK) e Estrangeiras (FK).
+2.  **`02_inserts_seed.sql`**: Script de população inicial (Seed). Inclui comandos de limpeza (`DELETE`) e reinicialização de IDs (`DBCC CHECKIDENT`) para testes recorrentes.
+3.  **`03_selects_relatorios.sql`**: Consultas DQL utilizando `INNER JOIN`, `LEFT JOIN` e funções de agregação (`COUNT`) para gerar relatórios gerenciais.
+4.  **`04_updates_manutencao.sql`**: Demonstração de comandos DML (`UPDATE`, `DELETE`) com cláusulas de segurança (`WHERE`) e transações.
 
-### 1. Histórico Escolar Completo
-Query utilizando múltiplos `JOINs` para cruzar Aluno, Matéria, Professor e Notas, incluindo lógica de aprovação (`CASE WHEN`).
+## 📊 Evidências de Execução
 
-```sql
-SELECT 
-    A.Nome_completo AS Aluno,
-    M.Nome AS Materia,
-    CASE 
-        WHEN D.Nota >= 6 THEN 'APROVADO'
-        ELSE 'REPROVADO'
-    END AS Status_Final
-...
+### Diagrama de Entidade-Relacionamento (DER)
+*(Insira aqui a imagem: prints/diagrama_db.png)*
+
+### Exemplo de Relatório (Boletim Escolar)
+Consulta SQL que unifica dados de 5 tabelas para exibir a situação do aluno.
+*(Insira aqui a imagem: prints/select_resultado.png)*
+
+---
+*Projeto desenvolvido para fins acadêmicos e composição de portfólio profissional.*
